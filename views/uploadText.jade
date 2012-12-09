@@ -1,0 +1,115 @@
+extends layout
+
+//- Include all support for CodeMirror on the index page.
+
+block head
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/lib/codemirror.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/lib/util/simple-hint.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/lib/util/dialog.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/neat.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/elegant.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/erlang-dark.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/night.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/monokai.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/cobalt.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/eclipse.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/rubyblue.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/lesser-dark.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/xq-dark.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/ambiance.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/blackboard.css')
+	link(type='text/css', rel='stylesheet', href='js/helper/CodeMirror/theme/vibrant-ink.css')
+	script(type='text/javascript', src='js/helper/CodeMirror/lib/codemirror.js')
+
+//- Header values
+block header
+	img(alt='Upload A Document', id='imgUpload', src='images/uploadIcon.svg', title='Upload a Document')
+	img(alt='Save Changes', id='imgSave', src='images/saveIcon.svg', title='Save Changes')
+	img(alt='logo', id='imgLogo', src='images/logo.svg')
+
+//- Navigation for the Home Page
+block nav
+	#nav
+		div(class='borderRight')
+			img(src='images/nav/html.svg', alt='Code', title='Write Code', id='codeIcon')
+		div
+			img(src='images/nav/bold.svg', alt='Bold', title='Bold', id='boldIcon')
+		div
+			img(src='images/nav/italics.svg', alt='italics', title='Italics', id='italicsIcon')
+		div
+			img(src='images/nav/underline.svg', alt='underline', title='Underline', id='underlineIcon')
+		div(class='borderRight')
+			img(src='images/nav/strike.svg', alt='strike', title='Deleted', id='strikeIcon')
+		div(class='borderRight')
+			select#fontStyle
+				- var fonts = ['Arial','Arial Narrow','Arial Rounded MT Bold','Book Antiqua','Bookman OldStyle','Bradley Hand ITC','Cambria','Century Gothic','Comic Sans MS','Courier New','Franklin Gothic Medium','Garamond','Haettenschweiler','Harrington','Impact','Lucida Bright','Lucida Calligraphy','Lucida Console','Lucida Sans','Lucida Sans Typewriter','Lucida Sans Unicode','Mistral','Monospace','MS Mincho','Onyx','Papyrus','Perpetua','Perpetua Titling MT','Playbill','Rockwell','Rockwell Extra Bold','Stencil','Tahoma','Times','Trebuchet MS','Tw Cen MT','Verdana','Wide Latin','Wingdings'];
+
+				each font in fonts
+					option(value=font)= font
+
+		div(class='borderRight')
+			select#fontSize
+				- var sizes = [10,12,14,16,18,20,24,28,36,42,48,56,64,72]
+				each size in sizes
+					option(value=size)= size
+
+		div
+			img(src='images/nav/undo.svg', alt='undo', title='Undo', id='undoIcon')
+		div(class='borderRight')
+			img(src='images/nav/redo.svg', alt='redo', title='Redo', id='redoIcon')
+		div
+			img(src='images/nav/subscript.svg', alt='subscript', title='Subscript', id='subscriptIcon')
+		div(class='borderRight')
+			img(src='images/nav/superscript.svg', alt='superscript', title='Superscript', id='superscriptIcon')
+		div
+			img(src='images/nav/fontColor.svg', alt='font color', title='Font Color', id='fontcolorIcon')
+		div
+			img(src='images/nav/colorFill.svg', alt='Backcolor fill', title='Background Color', id='backcolorIcon')
+		div
+			img(src='images/nav/insertImage2.svg', alt='insert image', title='Insert Image', id='insertimageIcon')
+		div
+			img(src='images/nav/insertVideo.svg', alt='Insert Video', title='Insert Video', id='insertvideoIcon')
+		div(class='borderRight')
+			img(src='images/nav/link.svg', alt='create link', title='Create Link', id='linkIcon')
+		div
+			img(src='images/nav/alignLeft.svg', alt='align left', title='Align Left', id='alignleftIcon')
+		div
+			img(src='images/nav/alignCenter.svg', alt='align center', title='Align Center', id='aligncenterIcon')
+		div
+			img(src='images/nav/alignRight.svg', alt='align right', title='Align Right', id='alignrightIcon')
+		div(class='borderRight')
+			img(src='images/nav/alignJustify.svg', alt='Justify', title='Justify Text', id='justifyIcon')
+		div(class='borderRight')
+			img(src='images/nav/hr.svg', alt='hr', title='Horizontal Line', id='hrIcon')
+		div
+			img(src='images/nav/unorderedList.svg', alt='UL list', title='Unordered List', id='ulIcon')
+		div
+			img(src='images/nav/orderedList.svg', alt='OL list', title='"Ordered List', id='olIcon')
+		div
+			img(src='images/nav/indent.svg', alt='indent', title='Indent', id='indentIcon')
+		div
+			img(src='images/nav/outdent.svg', alt='outdent', title='Outdent', id='outdentIcon')
+		div
+			img(src='images/nav/table.svg', alt='table', title='Draw Table', id='tableIcon')
+		div
+			img(src='images/nav/settings.svg', alt='settings', title='Settings', id='settingsIcon')
+
+//- Add up the textArea div & and CodeMirror Div.
+block edit
+	#codeProperties(class='hideDiv')
+		p Select a theme: <select id="select"><option selected>default</option><option>ambiance</option><option>blackboard</option><option>cobalt</option><option>eclipse</option><option>elegant</option><option>erlang-dark</option><option>lesser-dark</option><option>monokai</option><option>neat</option><option>night</option><option>rubyblue</option><option>vibrant-ink</option><option>xq-dark</option></select>
+
+		p
+			label <input type="checkbox" value="EnableHTMLCompletion" id="HTMLComplete" />Enable XHTML / XML Automatic Close Tag
+
+		p(class='hoverMee', class='poss', id='lang') <img src="images/expand.svg" alt="expand"/>Select Programming Language
+
+		p(class='hoverMee', id='instructions') <img src="images/expand.svg" alt="expand"/>View Instructions
+		
+	#textArea(contenteditable='true', class='setTextArea')
+		- if (loadTo == 'Default')
+			p= text
+
+	textarea(id='textAreaCode', class='expandTextArea')
+		- if (loadTo == 'CodeEditor')
+			= text

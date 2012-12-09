@@ -1,0 +1,390 @@
+* {
+	border: 0;
+	margin: 0;
+
+}
+
+body {
+	background: #eee;
+	height: 100%;
+	width: 100%;
+}
+
+/* Content wrapper */
+#wrapper {
+	margin: 0 auto;
+	width: 95%;
+	padding: 1em;
+	position: relative;
+	z-index: 1;
+}
+
+/*--------------------- Header Starts here --------------------- */
+
+/* 
+  This is where the logo, 
+  upload & save image icons reside
+*/
+#header {
+	width: 100%;
+	height: 5em;
+	padding: 0.3em;
+	margin: 0.12em auto;
+}
+
+/* upload icon go left */
+#header #imgUpload {
+	margin-left: 0;
+	float: left;
+	cursor: pointer;
+}
+
+/* logo go center */
+#header #imgLogoDiv {
+	display: block;
+	margin: auto;	
+	cursor: pointer;
+}
+
+/* logo go center */
+#header #imgLogo {
+	display: block;
+	margin: auto;
+}
+
+#header #imgLogoDiv label {
+	display: block;	
+	margin-left: 14em;
+	font-weight: bold;
+	float: left;
+}
+
+#header #imgLogoDiv label input {
+	outline: none; 
+	width: 33em; 
+	border: 2px solid #aaa;
+	padding-left: 5px;
+}
+
+#header #imgLogoDiv a, #header #imgLogoDiv a:visited, #header #imgLogoDiv a:active, #header #imgLogoDiv a:link {
+	border: 2px solid #aaa;
+	text-decoration: none;
+	color: black;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	margin-left: 0.3em;
+	background-color: #aaa;
+	font-weight: bold;
+}
+
+/* Save Icon go right */
+#header #imgSave {
+	float: right;
+	margin-right: 0;	
+	cursor: pointer;
+}
+
+/* Save Icon go right */
+#header #imgSaveEdit {
+	float: right;
+	margin-right: 0;	
+	cursor: pointer;
+}
+
+#header #imgSave:hover {		
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: pointer;
+}
+
+#header #imgSaveEdit:hover {		
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: pointer;
+}
+
+#header #imgUpload:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: pointer;
+}
+
+#header #imgNewDoc:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: pointer;
+}
+
+/*--------------------------Header Ends here -------------------------*/
+
+
+/*--------------------------Content Starts here -----------------------*/
+
+/* Content Div start here */
+#content {
+	margin: 0 auto;
+	margin-top: 1em;
+	width: 100%;
+	height: 40em;
+}
+
+/* Content Div for the public viewable version*/
+#pubContent {
+	margin: 0 auto;
+	width: 100%;
+}
+
+/*------------------ #nav (Div nav) start here -------------------*/
+
+/* Navigations (icons) */
+#content #nav {
+	border: 1px solid #fff;
+	background-color: #bbb;
+	width: 100%;
+	height: 6%;
+	padding: 0;
+	margin: 0;
+}
+
+#content #nav div:last-child {
+	padding: 0.15em;
+	width: 2.3em;
+	height: 100%;
+	float: right;
+}
+
+#content #nav div {
+	float: left;
+	padding: 0.225em;
+	height: 2em;
+	cursor: pointer;
+}
+
+/* Set border right (for nav)*/
+.borderRight {
+	border-right: 1.5px solid #ddd;
+}
+
+/* Code for fontStyle */
+#content #nav div select#fontStyle {
+	width: 6em;
+	height: 1.8em;
+	border: 1px solid #aaa;
+	margin-top: 0.35em;
+}
+
+/* Code for fontSize */
+#content #nav  div select#fontSize {
+	width: 3em;
+	height: 1.8em;
+	border: 1px solid #aaa;
+	margin-top: 0.35em;
+}
+
+#content #nav div img:hover {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	border: 1.5px solid #fff;
+	background-color: #eee;
+}
+/*--------------#nav (div nav) ends here ---------------*/
+
+
+
+/*-----------------#edit (Div edit) Starts here ----------*/
+#content #edit {
+	clear: both;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	background-color: #ddd;
+	border: 1px solid #fff;
+}
+
+.editEditableDoc {
+}
+
+.editDefault {
+}
+
+#codeProperties {
+	padding-left: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: #ddd;
+	height: 1.5em;
+}
+
+#codeProperties p {
+	display: inline-block;
+	border: 1px solid #ddd
+}
+
+#codeProperties select {
+	outline: none;
+	border: 2px solid #aaa;
+}
+
+#codeProperties p ~ p {	
+	margin-left: 6.5em;
+}
+
+#codeProperties p ~ p input {	
+	margin-right: 1em;
+}
+
+#codeProperties p ~ p label:hover {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#codeProperties p label img {
+	margin-left: 0.5em;	
+}
+
+.poss {
+	margin-left: 6.5em;
+}
+
+.hoverMee {
+	cursor: pointer;
+	padding: 1px 5px;
+}
+
+.hoverMee:hover {
+	background-color: #aaa;
+	border: 2px solid #000;
+	cursor: pointer;
+	padding: 1px 5px;
+	border-radius: 10%;
+	font-weight: bold
+}
+
+.hoverMee img {
+	margin-right: 0.5em;	
+}
+
+#codeProperties p:last-child {
+	margin-left: 5em;
+	float: right;
+	margin-right: 1em;
+}
+
+#content #edit #textAreaCode {
+	display: none;
+}
+
+/* public version of the Textarea*/
+.pubTextArea {
+	display: block;
+	width: 97.1%;
+	height: 100%;
+	margin: 0 auto;
+	border: 2px solid #fff;
+	background-color: #fff;
+	padding: 1em;
+	font-size: 1em;
+	font-family: Arial;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	line-height: normal;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid #ccc;
+}
+/*---------------#edit (Div edit) ends here ---------------*/
+/*------------------Content Ends here------------------------*/
+
+
+
+
+/*-----------------footer starts here--------------------------*/
+#footer {
+	margin: 0 auto;
+	margin-top: 5em;
+	width: 100%;
+	height: 2em;
+	text-align: center;
+}
+
+#footer a, #footer a:visited, #footer a:active, #footer a:link {
+	text-decoration: none;
+	color: blue;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer label {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+/*-----------------footer Ends here--------------------------*/
+
+
+
+
+/*--------- Classes used on javascript --------------*/
+.expandTextArea {
+	display: block;
+	margin-top : 0;
+	width : 100%;
+	height : 100%;
+	padding : 0;
+	font-size: 1em;
+	font-family: 'Courier New';
+	background-color: #fff;
+	margin: 0 auto;
+	resize: none;
+	overflow: auto;
+	outline: none;
+}
+
+.setTextArea {
+	display: block;
+	width: 89%;
+	height: 84%;
+	margin: 0 auto;
+	margin-top: 1.9em;
+	border: 2px solid #bbb;
+	background-color: #fff;
+	padding: 1em;
+	padding-top: 1.5em;
+	padding-left: 2em;
+	font-size: 1em;
+	font-family: Arial;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	line-height: normal;
+}
+
+.clicked {		
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	border: 1.5px solid #fff;
+	background-color: #eee;
+}
+
+.table {					
+	border: 1px solid #888; 
+	border-collapse: collapse; 
+}
+
+.tableTD {
+	width: 50px; 
+	height: 50px; 
+	text-align: center; 
+	vertical-align: middle;
+	border: 1px solid #888
+}
+
+.hideDiv {
+	display: none;
+}
+
+.showDiv {
+	display: block;
+}

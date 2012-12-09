@@ -1,0 +1,27 @@
+//-This is just a default template
+!!!
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    link(type='text/css', rel='stylesheet', href='stylesheets/index.css')
+    block head
+    script(type='text/javascript', src='js/require.js', data-main='js/main')
+
+  body
+    #wrapper
+      #header
+        block header
+
+      #content
+        block nav
+
+        #edit(class='editDefault')
+          block edit
+
+      #footer
+        a(href='index.htm') Home
+        label |
+        a(href='about.htm') About
+        label |
+        a(href='help.htm') Help
